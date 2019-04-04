@@ -6,7 +6,7 @@ public class PatientDetails {
 
     private String patientName;
 
-    private String age;
+    private Integer age;
 
     public Long getHospitalId() {
         return hospitalId;
@@ -24,11 +24,11 @@ public class PatientDetails {
         this.patientName = patientName;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 }

@@ -1,6 +1,7 @@
 package com.hospital.app.service;
 
 import com.hospital.app.bean.HealthParameters;
+import com.hospital.app.bean.PatientDetails;
 import com.hospital.app.entity.PatientHeathDetailEntity;
 import com.hospital.app.entity.PatientInfoEntity;
 import com.hospital.app.repository.IPatientInfoRepository;
@@ -46,6 +47,14 @@ public class MapperService {
         patientHeathDetailEntity.setTime(new BigInteger(healthParameters.getTime()));
         return patientHeathDetailEntity;
 
+    }
+
+    public PatientInfoEntity mapPatientInfoBeanToEntity(PatientDetails patientDetails)
+    {
+        PatientInfoEntity patientInfoEntity = new PatientInfoEntity();
+        patientInfoEntity.setPatientName(patientDetails.getPatientName());
+        patientInfoEntity.setAge(patientDetails.getAge());
+        return  patientInfoEntity;
     }
 
 }
