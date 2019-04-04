@@ -16,6 +16,6 @@ import java.util.List;
 public interface IPatientHealthDetailRepository extends JpaRepository<PatientHeathDetailEntity, Integer> {
 
     @Query("SELECT p FROM PatientHeathDetailEntity p WHERE p.patientInfo.hospitalId = :hospitalId")
-    public List<PatientHeathDetailEntity> findByHospitalId(@Param("hospitalId") Integer id);
+    public List<PatientHeathDetailEntity> findByHospitalId(@Param("hospitalId") Long id);
 
 }

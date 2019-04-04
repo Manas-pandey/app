@@ -42,5 +42,14 @@ public class AppController {
          return "done";
     }
 
+    @GetMapping(path = "/getHeathDetails/{id}")
+    @ResponseBody
+    public PatientInfo getHeathDetails(@PathVariable Long id)
+    {
+        return healthParameterService.getPatientDetailsById(id);
+    }
+
+
+
 
 }

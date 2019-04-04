@@ -14,33 +14,37 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service("healthParameterService")
-public class HealthParameterService implements IHealthParameterService{
+public class HealthParameterService implements IHealthParameterService {
 
     @Autowired
-    public IPatientHealthDetailRepository iPatientHealthDetailRepository ;
+    public IPatientHealthDetailRepository iPatientHealthDetailRepository;
 
     @Autowired
     public MapperService mapperService;
 
-    public List<HealthParameters> getPatientDetailsById(Integer id){
+    public PatientInfo getPatientDetailsById(Long id) {
 
         List<PatientHeathDetailEntity> patientHeathDetailEntities = null;
         List<HealthParameters> healthParametersList = new ArrayList<HealthParameters>();
+        PatientInfo patientInfo = new PatientInfo();
 
         patientHeathDetailEntities = iPatientHealthDetailRepository.findByHospitalId(id);
 
-        for (PatientHeathDetailEntity patientHeathDetailEntity : patientHeathDetailEntities){
+        for (PatientHeathDetailEntity patientHeathDetailEntity : patientHeathDetailEntities) {
 
-           HealthParameters healthParameters= mapperService.mapHealthParameterEntitytoBean(patientHeathDetailEntity);
-           healthParametersList.add(healthParameters);
+            HealthParameters healthParameters = mapperService.mapHealthParameterEntitytoBean(patientHeathDetailEntity);
+            healthParametersList.add(healthParameters);
 
         }
-        return  healthParametersList;
+
+        patientInfo.setHealthParameters(healthParametersList);
+
+        return patientInfo;
     }
 
-    public void persistHeathDetails(List<HealthParameters> healthParametersList){
+    public void persistHeathDetails(List<HealthParameters> healthParametersList) {
 
-        for(HealthParameters healthParameters:healthParametersList){
+        for (HealthParameters healthParameters : healthParametersList) {
 
             PatientHeathDetailEntity patientHeathDetailEntity = mapperService.mapHealthParameterBeantoEntity(healthParameters);
             iPatientHealthDetailRepository.save(patientHeathDetailEntity);
@@ -50,4 +54,6 @@ public class HealthParameterService implements IHealthParameterService{
 
     }
 }
+
+
 

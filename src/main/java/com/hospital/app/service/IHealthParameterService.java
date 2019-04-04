@@ -9,7 +9,7 @@ public interface IHealthParameterService {
 
 
 
-    public List<HealthParameters> getPatientDetailsById(Integer id);
+    public PatientInfo getPatientDetailsById(Long id);
 
 
     public void persistHeathDetails(List<HealthParameters> healthParametersList);

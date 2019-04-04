@@ -57,4 +57,13 @@ public class MapperService {
         return  patientInfoEntity;
     }
 
+    public PatientDetails mapPatientInfoEntityToBean(PatientInfoEntity patientInfoEntity)
+    {
+        PatientDetails patientDetails = new PatientDetails();
+        patientDetails.setHospitalId(patientInfoEntity.getHospitalId());
+        patientDetails.setPatientName(patientInfoEntity.getPatientName());
+        patientDetails.setAge(patientInfoEntity.getAge());
+        return patientDetails;
+    }
+
 }
