@@ -2,7 +2,6 @@ package com.hospital.app.entity;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.Date;
 
 @Entity
 @Table(name ="health_params")
@@ -22,6 +21,9 @@ public class PatientHeathDetailEntity {
 
     @Column(name="IMV")
     private Integer imv;
+
+    @Column(name="SPONBREATH")
+    private Integer sponBreath;
 
     @Column(name="PACO2")
     private Integer paCo2;
@@ -70,6 +72,14 @@ public class PatientHeathDetailEntity {
 
     public void setImv(Integer imv) {
         this.imv = imv;
+    }
+
+    public Integer getSponBreath() {
+        return sponBreath;
+    }
+
+    public void setSponBreath(Integer sponBreath) {
+        this.sponBreath = sponBreath;
     }
 
     public Integer getPaCo2() {

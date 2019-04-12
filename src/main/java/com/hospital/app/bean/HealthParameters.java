@@ -1,6 +1,6 @@
 package com.hospital.app.bean;
 
-public class HealthParameters {
+public class HealthParameters implements Comparable<HealthParameters>{
     private Long hospitalId;
 
     public Long getHospitalId() {
@@ -16,6 +16,8 @@ public class HealthParameters {
     private Integer heartRate;
 
     private Integer imv;
+
+    private Integer sponBreath;
 
     private Integer paCo2;
 
@@ -49,6 +51,14 @@ public class HealthParameters {
 
     public void setImv(Integer imv) {
         this.imv = imv;
+    }
+
+    public Integer getSponBreath()  {
+        return sponBreath;
+    }
+
+    public void setSponBreath(Integer sponBreath){
+        this.sponBreath = sponBreath;
     }
 
     public Integer getPaCo2() {
@@ -89,5 +99,12 @@ public class HealthParameters {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+    @Override
+    public int compareTo(HealthParameters healthParameters)
+    {
+        return this.getTime().compareTo(healthParameters.getTime());
+
     }
 }

@@ -2,8 +2,10 @@ package com.hospital.app.service;
 
 import com.hospital.app.bean.HealthParameters;
 
+import com.hospital.app.bean.PatientDetails;
 import com.hospital.app.bean.PatientInfo;
 import com.hospital.app.entity.PatientHeathDetailEntity;
+import com.hospital.app.entity.PatientInfoEntity;
 import com.hospital.app.repository.IPatientHealthDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Service("healthParameterService")
@@ -25,6 +29,7 @@ public class HealthParameterService implements IHealthParameterService {
     public PatientInfo getPatientDetailsById(Long id) {
 
         List<PatientHeathDetailEntity> patientHeathDetailEntities = null;
+        PatientDetails patientDetails = null;
         List<HealthParameters> healthParametersList = new ArrayList<HealthParameters>();
         PatientInfo patientInfo = new PatientInfo();
 
@@ -37,7 +42,13 @@ public class HealthParameterService implements IHealthParameterService {
 
         }
 
+        if (null != patientHeathDetailEntities){
+             patientDetails = mapperService.mapPatientInfoEntityToBean(patientHeathDetailEntities.get(0).getPatientInfo());
+        }
+
+        Collections.sort(healthParametersList,Collections.reverseOrder());
         patientInfo.setHealthParameters(healthParametersList);
+        patientInfo.setPatientDetails(patientDetails);
 
         return patientInfo;
     }

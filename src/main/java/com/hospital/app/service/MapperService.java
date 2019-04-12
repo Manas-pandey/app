@@ -21,8 +21,10 @@ public class MapperService {
         HealthParameters healthParameters = new HealthParameters();
         healthParameters.setHospitalId(patientHeathDetailEntity.getPatientInfo().getHospitalId());
         healthParameters.sethCo3(patientHeathDetailEntity.gethCo3());
+        healthParameters.setRespiratoryRate(patientHeathDetailEntity.getRespiratoryRate());
         healthParameters.setHeartRate(patientHeathDetailEntity.getHeartRate());
         healthParameters.setImv(patientHeathDetailEntity.getImv());
+        healthParameters.setSponBreath(patientHeathDetailEntity.getSponBreath());
         healthParameters.setPaCo2(patientHeathDetailEntity.getPaCo2());
         healthParameters.setSaO2(patientHeathDetailEntity.getSaO2());
         healthParameters.setSpO2(patientHeathDetailEntity.getSpO2());
@@ -41,6 +43,7 @@ public class MapperService {
         patientHeathDetailEntity.sethCo3(healthParameters.gethCo3());
         patientHeathDetailEntity.setHeartRate(healthParameters.getHeartRate());
         patientHeathDetailEntity.setImv(healthParameters.getImv());
+        patientHeathDetailEntity.setSponBreath(healthParameters.getSponBreath());
         patientHeathDetailEntity.setPaCo2(healthParameters.getPaCo2());
         patientHeathDetailEntity.setSaO2(healthParameters.getSaO2());
         patientHeathDetailEntity.setSpO2(healthParameters.getSpO2());
