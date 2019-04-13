@@ -6,12 +6,31 @@ import javax.persistence.*;
 @Table( name ="patient_info")
 public class PatientInfoEntity {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name ="HOS_ID",unique = true)
     private Long hospitalId;
 
     @Column(name="PATIENT_NAME")
-    private String patientName;
+    private String patientFirstName;
+
+    public String getPatientFirstName() {
+        return patientFirstName;
+    }
+
+    public void setPatientFirstName(String patientFirstName) {
+        this.patientFirstName = patientFirstName;
+    }
+
+    public String getPatientLastName() {
+        return patientLastName;
+    }
+
+    public void setPatientLastName(String patientLastName) {
+        this.patientLastName = patientLastName;
+    }
+
+    @Column(name="PATIENT_LST_NAME")
+    private String patientLastName;
 
     public Long getHospitalId() {
         return hospitalId;
@@ -21,13 +40,6 @@ public class PatientInfoEntity {
         this.hospitalId = hospitalId;
     }
 
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
 
     public Integer getAge() {
         return age;

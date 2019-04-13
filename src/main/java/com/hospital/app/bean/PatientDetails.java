@@ -4,7 +4,25 @@ public class PatientDetails {
 
     private Long hospitalId;
 
-    private String patientName;
+    private String patientFirstName;
+
+    private String patientLastName;
+
+    public String getPatientFirstName() {
+        return patientFirstName;
+    }
+
+    public void setPatientFirstName(String patientFirstName) {
+        this.patientFirstName = patientFirstName;
+    }
+
+    public String getPatientLastName() {
+        return patientLastName;
+    }
+
+    public void setPatientLastName(String patientLastName) {
+        this.patientLastName = patientLastName;
+    }
 
     private Integer age;
 
@@ -16,13 +34,7 @@ public class PatientDetails {
         this.hospitalId = hospitalId;
     }
 
-    public String getPatientName() {
-        return patientName;
-    }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
 
     public Integer getAge() {
         return age;
